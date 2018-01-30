@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Forest.Data.Music_Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+<p>
+
+    
+    @*Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GENRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.GENRE)*@
+
+            @Html.ActionLink(item.GENRE, "GetMusicRecordings",
+                            new { genre = item.GENRE })
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Add Music", "AddMusicRecording", new { Genre = item.GENRE, Controller = "MusicAdmin" })
+        </td>
+    </tr>
+}
+
+
+ 
+</table>
+//Where does this section need to link to ? 
