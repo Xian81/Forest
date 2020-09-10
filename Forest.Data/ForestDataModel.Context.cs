@@ -7,25 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forest.Data
-{
+
+
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+namespace Forest.Data
+{
+
     
-    public partial class ForestEntities : DbContext
+    public class ForestEntities : DbContext
+{
+    public ForestEntities() : base("name=ForestEntities")
     {
-        public ForestEntities()
-            : base("name=ForestEntities")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<Music_Category> Music_Category { get; set; }
-        public virtual DbSet<Music_Recording> Music_Recording { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet<Music_Category> Music_Category { get; set; }
+    public virtual DbSet<Music_Recording> Music_Recording { get; set; }
+    }
+
 }
